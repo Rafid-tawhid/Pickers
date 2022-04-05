@@ -1,6 +1,6 @@
 package com.example.pickers
 
-data class BusScedule(
+data class BusScedule2(
     val id:Long,
     val name:String,
     val from:String,

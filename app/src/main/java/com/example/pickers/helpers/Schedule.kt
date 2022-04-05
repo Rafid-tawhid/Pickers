@@ -1,6 +1,10 @@
-package com.example.pickers
+package com.example.pickers.helpers
+
+
 
 val cityList= listOf("Dhaka","Comilla","Borishal","Noakhali","Khulna","Cox's Bazar","Sylhet","Rajshahi")
+
+val scheduleList= mutableListOf<BusSchedule>()
 
 val busTypeEconomy="Economy"
 val busTypeBusiness="Business"

@@ -10,9 +10,14 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.RadioButton
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.example.pickers.databinding.FragmentNewScheduleBinding
 import com.example.pickers.dialogs.DatePickerFragment
 import com.example.pickers.dialogs.TimePickerFragment
+import com.example.pickers.helpers.BusSchedule
+import com.example.pickers.helpers.busTypeEconomy
+import com.example.pickers.helpers.cityList
+import com.example.pickers.helpers.scheduleList
 
 class NewScheduleFragment : Fragment() {
     private var from="Dhaka"
@@ -49,6 +54,8 @@ class NewScheduleFragment : Fragment() {
         return binding.root
     }
 
+
+
     private fun saveInfo() {
         val busName=binding.busNameId.text.toString()
         if(from==to){
@@ -56,16 +63,18 @@ class NewScheduleFragment : Fragment() {
 
             return
         }
-        val schedule=BusScedule(
+        val schedule=BusSchedule(
             id=System.currentTimeMillis(),
-            name = busName,
+            busName = busName,
             from=from,
             to=to,
-            departDate = selectedDate,
-            departTime = selectedTime,
+            depatureDate = selectedDate,
+            depatureTime = selectedTime,
             busType=busType
         )
         Log.d("INFO", "saveInfo: $schedule")
+        scheduleList.add(schedule)
+        findNavController().navigate(R.id.action_newScheduleFragment_to_scheduleFragment)
     }
 
     private fun initBusTypeRadioGroup() {
@@ -102,11 +111,6 @@ class NewScheduleFragment : Fragment() {
             }
         }
     }
-
-
-
-
-
 
 
 }

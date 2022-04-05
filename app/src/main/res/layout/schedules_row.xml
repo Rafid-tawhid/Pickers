@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="schedule"
+            type="com.example.pickers.helpers.BusSchedule" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="5dp"
+        app:cardCornerRadius="10dp"
+        android:layout_margin="5dp"
+        app:contentPadding="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                tools:text="Hanif Poribahan"
+                android:id="@+id/nameId"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:text="@{schedule.busName}">
+
+            </TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{schedule.from}"
+                    android:id="@+id/fromId"
+                    tools:text="Dhaka"
+                    android:layout_margin="5dp">
+
+                </TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" To "
+                    android:id="@+id/toId"
+                    android:layout_margin="5dp">
+
+                </TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{schedule.to}"
+                    tools:text="Cox's Bazar"
+                    android:layout_margin="5dp">
+
+                </TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16dp"
+                    tools:text="12.15 AM"
+                    android:id="@+id/dateId"
+                    android:text="@{schedule.depatureDate+` at `+schedule.depatureTime}">
+
+                </TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"></TextView>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{schedule.busType}"
+                    android:layout_margin="5dp"
+                    android:textAllCaps="false"
+                    android:id="@+id/typeId"
+                    tools:text="Business"
+                    android:gravity="center"
+                    android:layout_gravity="end"></Button>
+            </LinearLayout>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

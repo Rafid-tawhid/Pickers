@@ -18,5 +18,11 @@
         android:id="@+id/newScheduleFragment"
         android:name="com.example.pickers.NewScheduleFragment"
         android:label="fragment_new_schedule"
-        tools:layout="@layout/fragment_new_schedule" />
+        tools:layout="@layout/fragment_new_schedule" >
+        <action
+            android:id="@+id/action_newScheduleFragment_to_scheduleFragment"
+            app:destination="@id/scheduleFragment"
+            app:popUpTo="@id/scheduleFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>
